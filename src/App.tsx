@@ -1,9 +1,13 @@
-// import "./App.css";
+import { CategoryList } from "./components/CategoryList";
+import { Navbar } from "./components/Navbar";
+import { ProductList } from "./components/ProductList";
 
 export const App = () => {
   return (
     <div>
-      <h3>Northwind Store</h3>
+      <Navbar />
+      <CategoryList />
+      <ProductList />
     </div>
   );
 };
