@@ -1,7 +1,7 @@
 export const ProductList = () => {
   return (
     <div>
-      <h1>ProductList component</h1>
+      <h3>ProductList component</h3>
     </div>
   );
 };

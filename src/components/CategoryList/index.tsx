@@ -1,7 +1,7 @@
 export const CategoryList = () => {
   return (
     <div>
-      <h1>CategoryList component</h1>
+      <h3>CategoryList component</h3>
     </div>
   );
 };

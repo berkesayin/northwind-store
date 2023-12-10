@@ -1,7 +1,7 @@
 export const Navbar = () => {
   return (
     <div>
-      <h1>Navbar component</h1>
+      <h3>Navbar component</h3>
     </div>
   );
 };
