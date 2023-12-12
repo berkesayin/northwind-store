@@ -4,12 +4,12 @@ import { useState, useEffect } from "react";
 
 export const CategoryList = ({
   info: { title },
-  currentCategory,
+  // currentCategory,
   changeCategory,
 }: CategoryListProps) => {
   const initialCategories = [
-    { categoryId: 1, categoryName: "Beverages" },
-    { categoryId: 2, categoryName: "Condiments" },
+    { id: 1, categoryName: "Beverages" },
+    { id: 2, categoryName: "Condiments" },
   ];
 
   const [categories, setCategories] = useState<Category[]>(initialCategories);
@@ -30,14 +30,13 @@ export const CategoryList = ({
       <ListGroup>
         {categories.map((category) => (
           <ListGroup.Item
-            key={category.categoryId}
+            key={category.id}
             onClick={() => changeCategory(category)}
           >
             {category.categoryName}
           </ListGroup.Item>
         ))}
       </ListGroup>
-      <h4>{currentCategory}</h4>
     </div>
   );
 };

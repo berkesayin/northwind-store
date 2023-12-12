@@ -18,14 +18,20 @@ export const App = () => {
 
   const handleCategoryChange = (category: Category) => {
     setCurrentCategory(category.categoryName);
+    getProducts(category.id);
   };
 
   useEffect(() => {
-    getProducts();
+    // I pass undefined to get all products initially
+    getProducts(undefined);
   }, []);
 
-  const getProducts = () => {
-    fetch("http://localhost:3000/products")
+  const getProducts = (categoryId: number | undefined) => {
+    let url = "http://localhost:3000/products";
+    if (categoryId !== undefined) {
+      url += "?categoryId=" + categoryId;
+    }
+    fetch(url)
       .then((response) => response.json())
       .then((data) => setProducts(data));
   };
