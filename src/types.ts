@@ -9,3 +9,8 @@ export interface ProductListProps {
     title: string;
   };
 }
+
+export interface Category {
+  categoryId: number;
+  categoryName: string;
+}

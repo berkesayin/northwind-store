@@ -1,9 +1,9 @@
 import { ProductListProps } from "../../types";
 
-export const ProductList = ({ info }: ProductListProps) => {
+export const ProductList = ({ info: { title } }: ProductListProps) => {
   return (
     <div>
-      <h3>{info.title}</h3>
+      <h3>{title}</h3>
     </div>
   );
 };
