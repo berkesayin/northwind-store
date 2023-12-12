@@ -6,14 +6,24 @@ export interface CategoryListProps {
   changeCategory: (category: Category) => void;
 }
 
+export interface Category {
+  categoryId: number;
+  categoryName: string;
+}
+
 export interface ProductListProps {
   info: {
     title: string;
   };
   currentCategory: string;
+  products: Product[];
 }
 
-export interface Category {
+export interface Product {
+  id: number;
   categoryId: number;
-  categoryName: string;
+  productName: string;
+  quantityPerUnit: string;
+  unitPrice: number;
+  unitsInStock: number;
 }

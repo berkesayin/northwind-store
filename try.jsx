@@ -1,40 +1,55 @@
-import React, { Component } from "react";
-// ReactStrap içerisinden kullandığımız componentleri import edelim
-import { ListGroup, ListGroupItem } from "reactstrap";
+// ReactStrap'den kullanmak istediğimiz component'leri import etmemiz gerekli.
+import { Container, Row, Col } from "reactstrap";
 
-export default class CategoryList extends Component {
-  // state = {counter:1}  ==>  Örnek amaçlı bir state
+// App Class Componenti:
+export default class App extends Component {
   state = {
-    categories: [],
+    currentCategory: "", // Tıklama eventi ile tıklanan kategorinin ismini yazdırmak için kullancağız.
+    products: [],
   };
 
-  componentDidMount() {
-    this.getCategories();
+  // onClick fonksiyonu çalıştığında bu fonksiyonu çalıştırır.
+  changeCategory = (category) => {
+    this.setState({ currentCategory: category.categoryName });
+  };
+
+  componentDidMount(){
+    this.getProducts();
   }
 
-  getCategories = () => {
-    fetch("http://localhost:3000/categories")
-      .then((response) => response.json())
-      .then((data) => this.setState({ categories: data }));
-  };
+  getProducts() {
+    fetch("http://localhost:3000/products")
+      .then((response) => response.json())                  // response'u json'a döndürüyoruz
+      .then((data) => this.setState({ products: data }));   // state'in product değerini değiştirip data yapıyoruz.
+  }
 
   render() {
-    return (
-      <div>
-        <h3>{this.state.counter}</h3>
+    let categoryInfo = {
+      title: "Category List",
+    };
 
-        <ListGroup>
-          {this.state.categories.map((category) => (
-            <ListGroupItem
-              onClick={() => this.props.changeCategory(category)}
-              key={category.id}
-            >
-              {category.categoryName}
-            </ListGroupItem>
-          ))}
-        </ListGroup>
+    let productInfo = {
+      title: "Product List",
+    };
 
-        <h4>{this.props.currentCategory}</h4>
+          <Row>
+            <Col xs="3">
+              <CategoryList
+                currentCategory={this.state.currentCategory}
+                changeCategory={this.changeCategory}
+                info={categoryInfo}
+              />
+            </Col>
+
+            <Col xs="9">
+              <ProductList
+                products={this.state.products}
+                currentCategory={this.state.currentCategory}
+                info={productInfo}
+              />
+            </Col>
+          </Row>
+        </Container>
       </div>
     );
   }
