@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 
 export const CategoryList = ({
   info: { title },
-  // currentCategory,
+  currentCategory,
   changeCategory,
 }: CategoryListProps) => {
   const initialCategories = [
@@ -30,6 +30,7 @@ export const CategoryList = ({
       <ListGroup>
         {categories.map((category) => (
           <ListGroup.Item
+            active={category.categoryName === currentCategory ? true : false}
             key={category.id}
             onClick={() => changeCategory(category)}
           >
