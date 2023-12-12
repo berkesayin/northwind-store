@@ -4,8 +4,13 @@ import { Navbar } from "./components/Navbar";
 import { ProductList } from "./components/ProductList";
 
 export const App = () => {
-  const titleCategory = "Category List";
-  const productCategory = "Product List";
+  const categoryInfo = {
+    title: "Category List",
+  };
+
+  const productInfo = {
+    title: "Product List",
+  };
 
   return (
     <>
@@ -15,10 +20,10 @@ export const App = () => {
         </Row>
         <Row>
           <Col xs={3}>
-            <CategoryList title={titleCategory} />
+            <CategoryList info={categoryInfo} />
           </Col>
           <Col xs={9}>
-            <ProductList title={productCategory} />
+            <ProductList info={productInfo} />
           </Col>
         </Row>
       </Container>

@@ -1,7 +1,11 @@
 export interface CategoryListProps {
-  title: string;
+  info: {
+    title: string;
+  };
 }
 
 export interface ProductListProps {
-  title: string;
+  info: {
+    title: string;
+  };
 }

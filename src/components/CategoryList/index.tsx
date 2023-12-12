@@ -1,10 +1,10 @@
 import { ListGroup } from "react-bootstrap";
 import { CategoryListProps } from "../../types";
 
-export const CategoryList = ({ title }: CategoryListProps) => {
+export const CategoryList = ({ info }: CategoryListProps) => {
   return (
     <div>
-      <h3>{title}</h3>
+      <h3>{info.title}</h3>
       <ListGroup>
         <ListGroup.Item>Cras justo odio</ListGroup.Item>
         <ListGroup.Item>Dapibus ac facilisis in</ListGroup.Item>
