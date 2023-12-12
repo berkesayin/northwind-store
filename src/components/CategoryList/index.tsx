@@ -1,6 +1,6 @@
 import { ListGroup } from "react-bootstrap";
 import { Category, CategoryListProps } from "../../types";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export const CategoryList = ({
   info: { title },
@@ -13,6 +13,16 @@ export const CategoryList = ({
   ];
 
   const [categories, setCategories] = useState<Category[]>(initialCategories);
+
+  useEffect(() => {
+    getCategories();
+  }, []);
+
+  const getCategories = () => {
+    fetch("http://localhost:3000/categories")
+      .then((response) => response.json())
+      .then((data) => setCategories(data));
+  };
 
   return (
     <div>
