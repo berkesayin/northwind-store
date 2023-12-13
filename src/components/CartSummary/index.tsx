@@ -1,14 +1,20 @@
 import { Nav, Dropdown, Badge } from "react-bootstrap";
 import { CartSummaryProps } from "../../types";
 
-export const CartSummary = ({ cart }: CartSummaryProps) => {
+export const CartSummary = ({ cart, removeFromCart }: CartSummaryProps) => {
   const renderSummary = () => (
     <Dropdown>
-      <Dropdown.Toggle>Your Cart</Dropdown.Toggle>
+      <Dropdown.Toggle>Your Cart </Dropdown.Toggle>
       <Dropdown.Menu>
         {cart.map((cartItem) => (
           <Dropdown.Item key={cartItem.product.id}>
-            {cartItem.product.productName}
+            <Badge
+              color="danger"
+              onClick={() => removeFromCart(cartItem.product)}
+            >
+              X
+            </Badge>
+            {" " + cartItem.product.productName + " "}
             <Badge color="success">{cartItem.quantity}</Badge>
           </Dropdown.Item>
         ))}

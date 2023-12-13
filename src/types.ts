@@ -37,8 +37,10 @@ export interface Cart {
 
 export interface NavigationBarProps {
   cart: Cart[];
+  removeFromCart: (product: Product) => void;
 }
 
 export interface CartSummaryProps {
   cart: Cart[];
+  removeFromCart: (product: Product) => void;
 }

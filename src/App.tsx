@@ -23,7 +23,6 @@ export const App = () => {
   };
 
   useEffect(() => {
-    // I pass undefined to get all products initially
     getProducts(undefined);
   }, []);
 
@@ -38,7 +37,7 @@ export const App = () => {
   };
 
   const addToCart = (product: Product) => {
-    const newCart = [...cart]; // Use spread operator to create a new array
+    const newCart = [...cart];
     const addedItem = newCart.find((c) => c.product.id === product.id);
 
     if (addedItem) {
@@ -46,13 +45,18 @@ export const App = () => {
     } else {
       newCart.push({ product: product, quantity: 1, length: length + 1 });
     }
-    setCart(newCart); // Update the cart state
+    setCart(newCart);
+  };
+
+  const removeFromCart = (product: Product) => {
+    const newCart = cart.filter((c) => c.product.id !== product.id);
+    setCart(newCart);
   };
 
   return (
     <>
       <Row>
-        <NavigationBar cart={cart} />
+        <NavigationBar removeFromCart={removeFromCart} cart={cart} />
       </Row>
       <br />
       <Container>

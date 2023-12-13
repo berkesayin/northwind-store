@@ -4,7 +4,7 @@ import { useState } from "react";
 import { NavigationBarProps } from "../../types";
 import { CartSummary } from "../CartSummary";
 
-export const NavigationBar = ({ cart }: NavigationBarProps) => {
+export const NavigationBar = ({ cart, removeFromCart }: NavigationBarProps) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggle = () => {
@@ -38,7 +38,7 @@ export const NavigationBar = ({ cart }: NavigationBarProps) => {
                   Github
                 </Nav.Link>
               </Nav.Item>
-              <CartSummary cart={cart} />
+              <CartSummary removeFromCart={removeFromCart} cart={cart} />
             </Nav>
           </Navbar.Collapse>
         </Container>
