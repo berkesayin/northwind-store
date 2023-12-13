@@ -1,4 +1,4 @@
-import { Table } from "react-bootstrap";
+import { Table, Button } from "react-bootstrap";
 import { CartListProps } from "../../types";
 
 export const CartList = ({ cart, removeFromCart }: CartListProps) => {
@@ -25,6 +25,14 @@ export const CartList = ({ cart, removeFromCart }: CartListProps) => {
               <td>{cartItem.product.unitPrice}</td>
               <td>{cartItem.product.unitsInStock}</td>
               <td>{cartItem.quantity}</td>
+              <td>
+                <Button
+                  color="danger"
+                  onClick={() => removeFromCart(cartItem.product)}
+                >
+                  Remove
+                </Button>
+              </td>
             </tr>
           ))}
         </tbody>
