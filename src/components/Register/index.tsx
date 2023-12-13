@@ -1,5 +1,5 @@
-import { ChangeEvent, useState } from "react";
-import { Form, Container, Row, Col } from "react-bootstrap";
+import React, { ChangeEvent, useState } from "react";
+import { Form, Container, Row, Col, Button } from "react-bootstrap";
 
 export const Register = () => {
   const [name, setName] = useState("");
@@ -8,11 +8,16 @@ export const Register = () => {
     setName(event.target.value);
   };
 
+  const onSubmitHandler = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    alert("User " + name + " is saved!");
+  };
+
   return (
     <Container>
       <Row>
         <Col>
-          <Form>
+          <Form onSubmit={onSubmitHandler}>
             <Form.Group controlId="formName">
               <Form.Label>User Name</Form.Label>
               <Form.Control
@@ -25,6 +30,9 @@ export const Register = () => {
             <Form.Group controlId="formUserNameDisplay">
               <Form.Label>User Name is: {name}</Form.Label>
             </Form.Group>
+            <Button variant="primary" type="submit">
+              Save
+            </Button>
           </Form>
         </Col>
       </Row>
