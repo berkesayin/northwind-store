@@ -1,9 +1,12 @@
 import { useState, useEffect } from "react";
 import { Container, Row, Col } from "react-bootstrap";
+import { Route, Routes } from "react-router-dom";
 import { Cart, Category, Product } from "./types";
 import { CategoryList } from "./components/CategoryList";
 import { NavigationBar } from "./components/NavigationBar";
 import { ProductList } from "./components/ProductList";
+import { NotFound } from "./components/NotFound";
+import { CartList } from "./components/CartList";
 
 export const App = () => {
   const [currentCategory, setCurrentCategory] = useState("");
@@ -69,12 +72,21 @@ export const App = () => {
             />
           </Col>
           <Col xs={9}>
-            <ProductList
-              products={products}
-              currentCategory={currentCategory}
-              addToCart={addToCart}
-              info={productInfo}
-            />
+            <Routes>
+              <Route
+                path="/"
+                element={
+                  <ProductList
+                    products={products}
+                    currentCategory={currentCategory}
+                    info={productInfo}
+                    addToCart={addToCart}
+                  />
+                }
+              />
+              <Route path="/cart" element={<CartList />} />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
           </Col>
         </Row>
       </Container>
