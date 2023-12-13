@@ -7,6 +7,7 @@ import { NavigationBar } from "./components/NavigationBar";
 import { ProductList } from "./components/ProductList";
 import { NotFound } from "./components/NotFound";
 import { CartList } from "./components/CartList";
+import { Register } from "./components/Register";
 
 export const App = () => {
   const [currentCategory, setCurrentCategory] = useState("");
@@ -90,6 +91,7 @@ export const App = () => {
                   <CartList cart={cart} removeFromCart={removeFromCart} />
                 }
               />
+              <Route path="/register" element={<Register />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </Col>

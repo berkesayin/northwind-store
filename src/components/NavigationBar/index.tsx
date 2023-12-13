@@ -21,15 +21,15 @@ export const NavigationBar = ({ cart, removeFromCart }: NavigationBarProps) => {
             <Nav>
               <Nav.Item>
                 <Nav.Link>
-                  <Link to="form1" style={{ color: "white" }}>
-                    Form Demo 1
+                  <Link to="register" style={{ color: "white" }}>
+                    Register
                   </Link>
                 </Nav.Link>
               </Nav.Item>
               <Nav.Item>
                 <Nav.Link>
-                  <Link to="form2" style={{ color: "white" }}>
-                    Form Demo 2
+                  <Link to="feedback" style={{ color: "white" }}>
+                    Feedback
                   </Link>
                 </Nav.Link>
               </Nav.Item>
