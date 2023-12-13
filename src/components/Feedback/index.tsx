@@ -48,7 +48,7 @@ export const Feedback = () => {
         <FormGroup>
           <Form.Label htmlFor="description">Description</Form.Label>
           <Form.Control
-            as="textarea" // Use "as" instead of "type" for textarea
+            as="textarea"
             name="description"
             id="description"
             placeholder="Enter Description"
