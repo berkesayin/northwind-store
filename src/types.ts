@@ -38,3 +38,7 @@ export interface Cart {
 export interface NavigationBarProps {
   cart: Cart[];
 }
+
+export interface CartSummaryProps {
+  cart: Cart[];
+}

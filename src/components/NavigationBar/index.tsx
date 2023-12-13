@@ -1,7 +1,8 @@
-import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
+import { Container, Nav, Navbar } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { NavigationBarProps } from "../../types";
+import { CartSummary } from "../CartSummary";
 
 export const NavigationBar = ({ cart }: NavigationBarProps) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -37,23 +38,7 @@ export const NavigationBar = ({ cart }: NavigationBarProps) => {
                   Github
                 </Nav.Link>
               </Nav.Item>
-              <NavDropdown
-                id="nav-dropdown-dark-example"
-                title={cart.length}
-                menuVariant="dark"
-              >
-                <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.2">
-                  Another action
-                </NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.3">
-                  Something
-                </NavDropdown.Item>
-                <NavDropdown.Divider />
-                <NavDropdown.Item href="#action/3.4">
-                  Separated link
-                </NavDropdown.Item>
-              </NavDropdown>
+              <CartSummary cart={cart} />
             </Nav>
           </Navbar.Collapse>
         </Container>
