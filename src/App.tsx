@@ -8,6 +8,7 @@ import { ProductList } from "./components/ProductList";
 import { NotFound } from "./components/NotFound";
 import { CartList } from "./components/CartList";
 import { Register } from "./components/Register";
+import { Feedback } from "./components/Feedback";
 
 export const App = () => {
   const [currentCategory, setCurrentCategory] = useState("");
@@ -92,6 +93,7 @@ export const App = () => {
                 }
               />
               <Route path="/register" element={<Register />} />
+              <Route path="/feedback" element={<Feedback />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </Col>
