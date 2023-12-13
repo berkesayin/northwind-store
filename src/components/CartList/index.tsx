@@ -4,6 +4,7 @@ import { CartListProps } from "../../types";
 export const CartList = ({ cart, removeFromCart }: CartListProps) => {
   const renderCart = () => (
     <div>
+      <h2>Your Cart</h2>
       <Table striped>
         <thead>
           <tr>
