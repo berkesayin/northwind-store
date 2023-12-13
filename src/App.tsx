@@ -1,13 +1,14 @@
 import { useState, useEffect } from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import { Category, Product } from "./types";
+import { Cart, Category, Product } from "./types";
 import { CategoryList } from "./components/CategoryList";
-import { Navbar } from "./components/Navbar";
+import { NavigationBar } from "./components/NavigationBar";
 import { ProductList } from "./components/ProductList";
 
 export const App = () => {
   const [currentCategory, setCurrentCategory] = useState("");
   const [products, setProducts] = useState<Product[]>([]);
+  const [cart, setCart] = useState<Cart[]>([]);
 
   const categoryInfo = {
     title: "Category List",
@@ -36,12 +37,25 @@ export const App = () => {
       .then((data) => setProducts(data));
   };
 
+  const addToCart = (product: Product) => {
+    const newCart = [...cart]; // Use spread operator to create a new array
+    const addedItem = newCart.find((c) => c.product.id === product.id);
+
+    if (addedItem) {
+      addedItem.quantity += 1;
+    } else {
+      newCart.push({ product: product, quantity: 1, length: length + 1 });
+    }
+    setCart(newCart); // Update the cart state
+  };
+
   return (
     <>
+      <Row>
+        <NavigationBar cart={cart} />
+      </Row>
+      <br />
       <Container>
-        <Row>
-          <Navbar />
-        </Row>
         <Row>
           <Col xs={3}>
             <CategoryList
@@ -54,6 +68,7 @@ export const App = () => {
             <ProductList
               products={products}
               currentCategory={currentCategory}
+              addToCart={addToCart}
               info={productInfo}
             />
           </Col>

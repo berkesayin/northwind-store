@@ -17,6 +17,7 @@ export interface ProductListProps {
   };
   currentCategory: string;
   products: Product[];
+  addToCart: (product: Product) => void;
 }
 
 export interface Product {
@@ -26,4 +27,14 @@ export interface Product {
   quantityPerUnit: string;
   unitPrice: number;
   unitsInStock: number;
+}
+
+export interface Cart {
+  product: Product;
+  quantity: number;
+  length: number;
+}
+
+export interface NavigationBarProps {
+  cart: Cart[];
 }

@@ -1,10 +1,11 @@
 import { ProductListProps } from "../../types";
-import { Table } from "react-bootstrap";
+import { Table, Button } from "react-bootstrap";
 
 export const ProductList = ({
   info: { title },
   products,
   currentCategory,
+  addToCart,
 }: ProductListProps) => {
   return (
     <div>
@@ -29,6 +30,11 @@ export const ProductList = ({
               <td>{product.unitPrice}</td>
               <td>{product.quantityPerUnit}</td>
               <td>{product.unitsInStock}</td>
+              <td>
+                <div>
+                  <Button onClick={() => addToCart(product)}>Add</Button>
+                </div>
+              </td>
             </tr>
           ))}
         </tbody>
