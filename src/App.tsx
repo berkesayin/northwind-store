@@ -84,7 +84,12 @@ export const App = () => {
                   />
                 }
               />
-              <Route path="/cart" element={<CartList />} />
+              <Route
+                path="/cart"
+                element={
+                  <CartList cart={cart} removeFromCart={removeFromCart} />
+                }
+              />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </Col>

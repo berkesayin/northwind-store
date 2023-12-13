@@ -44,3 +44,8 @@ export interface CartSummaryProps {
   cart: Cart[];
   removeFromCart: (product: Product) => void;
 }
+
+export interface CartListProps {
+  cart: Cart[];
+  removeFromCart: (product: Product) => void;
+}

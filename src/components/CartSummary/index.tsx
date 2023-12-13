@@ -1,4 +1,5 @@
 import { Nav, Dropdown, Badge } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import { CartSummaryProps } from "../../types";
 
 export const CartSummary = ({ cart, removeFromCart }: CartSummaryProps) => {
@@ -19,7 +20,13 @@ export const CartSummary = ({ cart, removeFromCart }: CartSummaryProps) => {
           </Dropdown.Item>
         ))}
         <Dropdown.Item />
-        <Dropdown.Item>Reset</Dropdown.Item>
+        <Dropdown.Item>
+          <Link to="cart">Go To Cart</Link>
+        </Dropdown.Item>
+
+        <Dropdown.Item>
+          <Link to="/">Go To Products</Link>
+        </Dropdown.Item>
       </Dropdown.Menu>
     </Dropdown>
   );
